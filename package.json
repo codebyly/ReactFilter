@@ -1,11 +1,12 @@
 {
   "scripts": {
     "dev": "npm-run-all --parallel server parcel-dev sass-dev postcss",
-    "build": "npm-run-all --sequential parcel-build sass-build postcss",
+    "build": "npm-run-all --sequential parcel-build sass-build postcss-build",
     "server": "browser-sync --serve --files '*.html, *.css'",
     "sass-dev": "sass sass:temp --watch --embed-source-map",
     "sass-build": "sass sass:temp --embed-source-map --style=compressed",
     "postcss": "postcss temp/style.css -u autoprefixer -d . --map --watch",
+    "postcss-build": "postcss temp/style.css -u autoprefixer -d . --map",
     "parcel-dev": "parcel watch js/src/app.js --out-dir js/dist",
     "parcel-build": "parcel build js/src/app.js --out-dir js/dist"
   },
